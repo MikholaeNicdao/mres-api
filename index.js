@@ -18,8 +18,10 @@ app.use(cors())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
-// API
-app.use('/api/', apiRoute)
+// API apiRoute
+app.use('/api', (req,res)=>{
+    res.json({haha: "hehehe"})
+})
 
 app.listen(port, ()=>{
     console.log(`Server is listening on port ${port}`)
