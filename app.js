@@ -21,7 +21,7 @@ app.use(bodyParser.json())
 
 // API
 //app.use('/api/', apiRoute)
-app.get('/', (req,res)=>{
+app.use('/', (req,res)=>{
     res.json({sucess: "TANG INA MO"})
 })
 
