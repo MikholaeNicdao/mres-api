@@ -1,6 +1,7 @@
 'use strict'
 
 const express = require('express')
+const res = require('express/lib/response')
 const multer = require('multer')
 const router = express.Router()
 const apiController = require('./controllers/api.controller')
@@ -12,8 +13,10 @@ const upload = multer({storage:multer.memoryStorage()})
 router.post('/create/admin/account', apiController.createAdmin)
 router.post('/login/admin', apiController.loginAdmin)
 
-// GET routers for static page
-router.get('/', apiController.getSchedule)
+// GET routers for static page apiController.getSchedule
+router.get('/home', (req,res)=>{
+    res.json({SAMPLE: "AHHAHAAHH"})
+})
 router.get('/Faculty', apiController.getAllFaculty)
 router.get('/SchoolActivities', apiController.getAllSchoolActivities)
 router.get('/SchoolActivities/:id', apiController.getByIdSA)
