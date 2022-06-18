@@ -8,7 +8,7 @@ const dbconnect = mysql2.createConnection({
     user: process.env.USER,
     password: process.env.PASS,
     database: process.env.DATABASE,
-    port: process.env.PORT,
+    port: process.env.DATABASE_PORT,
 })
 
 dbconnect.connect(function(err){
