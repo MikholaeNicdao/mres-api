@@ -6,8 +6,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 
 // Initialize Routes
-const apiRoute = require('src/routes/api.route')
-const res = require('express/lib/response')
+const apiRoute = require('/src/routes/api.route')
 
 require('dotenv').config()
 const port = process.env.HPORT || 8080
