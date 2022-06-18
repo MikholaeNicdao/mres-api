@@ -47,7 +47,7 @@ exports.loginAdmin = (req,res)=>{
 
 // Get information
 exports.getSchedule = (req,res)=>{
-    res.send("Hello World!")
+    res.status(200).json({success: true})
     
 }
 
