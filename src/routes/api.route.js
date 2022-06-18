@@ -3,7 +3,7 @@
 const express = require('express')
 const multer = require('multer')
 const router = express.Router()
-const apiController = require('../controllers/api.controller')
+const apiController = require('./controllers/api.controller')
 
 // multer setup for file uploading
 const upload = multer({storage:multer.memoryStorage()})
