@@ -76,6 +76,16 @@ exports.getAllSchoolActivities = (req,res)=>{
     })
 }
 
+exports.getByPageSA = (req, res)=>{
+    apiModel.getByPageSA(req.params.page, (err,data)=>{
+        if(err){
+            res.status(404).json({success: false, description: data})
+        }else{
+            res.status(200).json({success: true, description: data})
+        }
+    })
+}
+
 exports.getByIdSA = (req,res)=>{
     apiModel.getByIdSA(req.params.id, (err,data)=>{
         if(err){

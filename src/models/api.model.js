@@ -59,6 +59,18 @@ class mresQuery{
         })
     }
 
+    static getByPageSA(page, result){
+        const limit = 2;
+        const startIndex = +page === 1 ? 0 : (page - 1) * limit
+        dbconnect.query('SELECT * FROM schoolactivities ORDER BY createdAt DESC LIMIT ?, ?', [startIndex, limit], (err,res)=>{
+            if(err){
+                result(null, err)
+            }else{
+                result(null, res)
+            }
+        })
+    }
+
     static getByIdSA(id,result){
         dbconnect.query('SELECT * FROM schoolactivities WHERE id=?', [id], (err,res)=>{
             if(err){
