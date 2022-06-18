@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
 // API
-app.use('/api/v1/', apiRoute)
+app.use('/api/', apiRoute)
 
 app.listen(port, ()=>{
     console.log(`Server is listening on port ${port}`)
