@@ -6,7 +6,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 
 // Initialize Routes
-const apiRoute = require('./src/routes/api.route')
+const apiRoute = require('src/routes/api.route')
 
 require('dotenv').config()
 const port = process.env.PORT || 8080
@@ -18,10 +18,8 @@ app.use(cors())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
-// API apiRoute
-app.use('/api', (req,res)=>{
-    res.json({haha: "hehehe"})
-})
+// API
+app.use('/api/', apiRoute)
 
 app.listen(port, ()=>{
     console.log(`Server is listening on port ${port}`)
