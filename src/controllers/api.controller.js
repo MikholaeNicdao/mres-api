@@ -116,6 +116,16 @@ exports.getByIdAnnouncements = (req,res)=>{
     })
 }
 
+exports.getByPageAnnouncements = (req,res)=>{
+    apiModel.getByPageAnnouncements(req.params.id, (err,data)=>{
+        if(err){
+            res.status(404).json({success: false, description: data})
+        }else{
+            res.status(200).json({success: true, description: data})
+        }
+    })
+}
+
 exports.getAllLCP = (req,res)=>{
     apiModel.getAllLCP((err,data)=>{
         if(err){

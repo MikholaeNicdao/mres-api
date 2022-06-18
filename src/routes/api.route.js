@@ -21,6 +21,7 @@ router.get('/Schoolactivities/:id', apiController.getByIdSA)
 router.get('/Schoolactivities/page/:page',apiController.getByPageSA)
 router.get('/Announcements', apiController.getAllSchoolAnnouncements)
 router.get('/Announcements/:id', apiController.getByIdAnnouncements)
+router.get('/Announcements/page/:page',apiController.getByPageAnnouncements)
 router.get('/LearningContinuityPlan', apiController.getAllLCP)
 
 // ADMIN POST API's
