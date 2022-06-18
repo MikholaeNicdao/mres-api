@@ -76,7 +76,7 @@ exports.getAllSchoolActivities = (req,res)=>{
     })
 }
 
-exports.getByPageSA = (req, res)=>{
+exports.getByPageSA = async (req, res)=>{
     const pageCount = await apiModel.getTableLength('schoolactivities')
     apiModel.getByPageSA(req.params.page, (err,data)=>{
         if(err){
@@ -117,7 +117,7 @@ exports.getByIdAnnouncements = (req,res)=>{
     })
 }
 
-exports.getByPageAnnouncements = (req,res)=>{
+exports.getByPageAnnouncements = async (req,res)=>{
     const pageCount = await apiModel.getTableLength('announcements')
     apiModel.getByPageAnnouncements(req.params.id, (err,data)=>{
         if(err){
