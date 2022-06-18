@@ -10,7 +10,7 @@ const apiRoute = require('./src/routes/api.route')
 const res = require('express/lib/response')
 
 require('dotenv').config()
-const port = process.env.HPORT
+const port = process.env.HPORT || 8080
 
 // Enable all CORS
 app.use(cors())
@@ -20,10 +20,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
 // API
-//app.use('/api/', apiRoute)
-app.use('/', (req,res)=>{
-    res.json({sucess: "TANG INA MO"})
-})
+app.use('/api/', apiRoute)
 
 app.listen(port, ()=>{
     console.log(`Server is listening on port ${port}`)
