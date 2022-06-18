@@ -47,7 +47,13 @@ exports.loginAdmin = (req,res)=>{
 
 // Get information
 exports.getSchedule = (req,res)=>{
-    res.json({sample: "SAMPLEAPSLDPLASPD"})
+    apiModel.getSchedule((err,data)=>{
+        if(err){
+            res.status(404).json({success: false, description: data})
+        }else{
+            res.status(200).json({success: true, description: data})
+        }
+    })
 }
 
 exports.getAllFaculty = (req,res)=>{
