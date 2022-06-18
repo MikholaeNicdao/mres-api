@@ -114,7 +114,7 @@ class mresQuery{
     }
 
     static getAllLCP(result){
-        dbconnect.query('SELECT * FROM lcp', (err,res)=>{
+        dbconnect.query('SELECT * FROM lcp ORDER BY page ASC', (err,res)=>{
             if(err){
                 result(null, err)
             }else{
@@ -264,6 +264,21 @@ class mresQuery{
                 result(null, res)
             }
         })
+    }
+
+    //Pagination Navigation
+
+    static async getTableLength(tableName){
+        const res = await dbconnect.promise().query('SELECT COUNT(*) FROM '+ tableName)
+
+        const tbLength = res[0][0]['COUNT(*)']
+
+        let pageCount = tbLength%this.postCount === 0 
+            ? tbLength/this.postCount
+            : Math.floor(tbLength/this.postCount) + 1
+
+
+        return pageCount
     }
 
 }

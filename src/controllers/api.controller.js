@@ -77,11 +77,12 @@ exports.getAllSchoolActivities = (req,res)=>{
 }
 
 exports.getByPageSA = (req, res)=>{
+    const pageCount = await apiModel.getTableLength('schoolactivities')
     apiModel.getByPageSA(req.params.page, (err,data)=>{
         if(err){
             res.status(404).json({success: false, description: data})
         }else{
-            res.status(200).json({success: true, description: data})
+            res.status(200).json({success: true, description: data, pageCount})
         }
     })
 }
@@ -117,11 +118,12 @@ exports.getByIdAnnouncements = (req,res)=>{
 }
 
 exports.getByPageAnnouncements = (req,res)=>{
+    const pageCount = await apiModel.getTableLength('announcements')
     apiModel.getByPageAnnouncements(req.params.id, (err,data)=>{
         if(err){
             res.status(404).json({success: false, description: data})
         }else{
-            res.status(200).json({success: true, description: data})
+            res.status(200).json({success: true, description: data, pageCount})
         }
     })
 }
