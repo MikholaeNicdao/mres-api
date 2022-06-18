@@ -9,7 +9,7 @@ const bodyParser = require('body-parser')
 const apiRoute = require('./src/routes/api.route')
 
 require('dotenv').config()
-const port = process.env.HPORT || 8080
+const port = process.env.PORT || 8080
 
 // Enable all CORS
 app.use(cors())
