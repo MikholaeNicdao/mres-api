@@ -140,7 +140,13 @@ exports.getAllLCP = (req,res)=>{
 
 // Sending Data and File Uploading
 exports.scheduleUpload = (req,res)=>{
-    apiModel.scheduleUpload(req.body.schedule, (err,result)=>{
+    let title = req.body.title
+    let description = req.body.description
+    let location = req.body.location
+    let date = req.body.date
+    let time = req.body.time
+
+    apiModel.scheduleUpload(title, description, location, date, time, (err,result)=>{
         if(err){
             res.status(404).json({success: false, description: result})
         }else{
@@ -173,7 +179,7 @@ exports.schoolActivitiesUpload = (req,res)=>{
     let title = req.body.title
     let description = req.body.description
 
-    apiModel.schoolActivitiesUpload(image,title,description,(err,result)=>{
+    apiModel.schoolActivitiesUpload(image,title,description, (err,result)=>{
         if(err){
             res.status(404).json({success: false, description: result})
         }else{

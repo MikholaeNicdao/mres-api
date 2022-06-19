@@ -25,13 +25,13 @@ router.get('/Announcements/page/:page',apiController.getByPageAnnouncements)
 router.get('/LearningContinuityPlan', apiController.getAllLCP)
 
 // ADMIN POST API's
+router.post('/Schedule/update', apiController.scheduleUpload)
 router.post('/Faculty/add/member', upload.single('coverPhoto'), apiController.addFacultyMember)
 router.post('/Schoolactivities/add', upload.single('coverPhoto'), apiController.schoolActivitiesUpload)
 router.post('/Announcements/add', upload.single('coverPhoto'), apiController.announcementsUpload)
 router.post('/LearningContinuityPlan/add', upload.single('coverPhoto'), apiController.LCPUpload)
 
 // ADMIN UPDATE API's
-router.put('/Schedule/update', apiController.scheduleUpload)
 router.put('/Schoolactivities/update/:id', upload.single('coverPhoto'),apiController.updateSA)
 router.put('/Announcements/update/:id', upload.single('coverPhoto'),apiController.updateAnnouncements)
 router.put('/LearningContinuityPlan/update/:id', upload.single('coverPhoto'), apiController.updateLCP)

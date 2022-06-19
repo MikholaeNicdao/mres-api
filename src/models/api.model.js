@@ -124,8 +124,8 @@ class mresQuery{
     }
 
     // Uploading file and data
-    static scheduleUpload(schedule, result){
-        dbconnect.query('UPDATE schedules SET schedulenote=? WHERE id > 0', [schedule], (err,res)=>{
+    static scheduleUpload(title, description, location, date, time, result){
+        dbconnect.query('INSERT INTO schedules (title, description, location, date, time) VALUES (?,?,?,?,?)', [title, description, location, date, time], (err,res)=>{
             if(err){
                 result(null, err)
             }else{
