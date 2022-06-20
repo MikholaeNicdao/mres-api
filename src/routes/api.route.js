@@ -25,7 +25,7 @@ router.get('/Announcements/page/:page',apiController.getByPageAnnouncements)
 router.get('/LearningContinuityPlan', apiController.getAllLCP)
 
 // ADMIN POST API's
-router.post('/Schedule/update', apiController.scheduleUpload)
+router.post('/Schedule/add', apiController.scheduleUpload)
 router.post('/Faculty/add/member', upload.single('coverPhoto'), apiController.addFacultyMember)
 router.post('/Schoolactivities/add', upload.single('coverPhoto'), apiController.schoolActivitiesUpload)
 router.post('/Announcements/add', upload.single('coverPhoto'), apiController.announcementsUpload)
