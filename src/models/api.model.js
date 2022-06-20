@@ -4,8 +4,8 @@ let dbconnect = require('../../config/database.config')
 const date = new Date()
 
 class mresQuery{
-    //Pagination Navigation
 
+    //Pagination Navigation
     static async getTableLength(tableName){
         const res = await dbconnect.promise().query('SELECT COUNT(*) FROM '+ tableName)
         let postCount = 0
@@ -16,7 +16,7 @@ class mresQuery{
             : Math.floor(tbLength/postCount) + 1
 
 
-        return pageCount
+        return 2
     }
 
     // Create ADMIN account
