@@ -18,11 +18,6 @@ app.use(cors())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
-// Home
-app.get('/', (req,res)=>{
-    res.send("Hello World!")
-})
-
 // API
 app.use('/api', apiRoute)
 

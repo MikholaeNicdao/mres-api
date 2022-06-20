@@ -14,6 +14,9 @@ router.post('/create/admin/account', apiController.createAdmin)
 router.post('/login/admin', apiController.loginAdmin)
 
 // GET routers for static page 
+router.get('/', (req,res)=>{
+    res.json({success: "success!"})
+})
 router.get('/Events', apiController.getSchedule)
 router.get('/Faculty', apiController.getAllFaculty)
 router.get('/Schoolactivities', apiController.getAllSchoolActivities)
