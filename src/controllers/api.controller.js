@@ -178,8 +178,9 @@ exports.schoolActivitiesUpload = (req,res)=>{
     let image = req.file.buffer.toString('base64')
     let title = req.body.title
     let description = req.body.description
+    let author = req.body.author
 
-    apiModel.schoolActivitiesUpload(image,title,description, (err,result)=>{
+    apiModel.schoolActivitiesUpload(image,title,description,author, (err,result)=>{
         if(err){
             res.status(404).json({success: false, description: result})
         }else{
