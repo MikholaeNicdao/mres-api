@@ -104,7 +104,7 @@ class mresQuery{
     static getByPageAnnouncements(page, result){
         const limit = 8;
         const startIndex = +page === 1 ? 0 : (page - 1) * limit
-        dbconnect.query('SELECT * FROM schoolactivities ORDER BY createdAt DESC LIMIT ?, ?', [startIndex, limit], (err,res)=>{
+        dbconnect.query('SELECT * FROM schoolactivities ORDER BY createdAt DESC LIMIT ?, ?', [parseInt(startIndex), limit], (err,res)=>{
             if(err){
                 result(null, err)
             }else{
