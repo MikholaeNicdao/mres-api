@@ -8,15 +8,14 @@ class mresQuery{
     //Pagination Navigation
     static async getTableLength(tableName){
         const res = await dbconnect.promise().query('SELECT COUNT(*) FROM '+ tableName)
-        let postCount = 1
         const tbLength = res[0][0]['COUNT(*)']
 
-        let pageCount = tbLength%postCount === 0 
-            ? tbLength/postCount
-            : Math.floor(tbLength/postCount) + 1
+        let pageCount = tbLength%this.postCount === 0 
+            ? tbLength/this.postCount
+            : Math.floor(tbLength/this.postCount) + 1
 
 
-        return postCount
+        return pageCount
     }
 
     // Create ADMIN account
