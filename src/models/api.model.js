@@ -15,7 +15,6 @@ class mresQuery{
             ? tbLength/this.postCount
             : Math.floor(tbLength/this.postCount) + 1
 
-
         return pageCount
     }
 
