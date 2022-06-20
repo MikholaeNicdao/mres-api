@@ -4,6 +4,20 @@ let dbconnect = require('../../config/database.config')
 const date = new Date()
 
 class mresQuery{
+    //Pagination Navigation
+
+    static async getTableLength(tableName){
+        const res = await dbconnect.promise().query('SELECT COUNT(*) FROM '+ tableName)
+
+        const tbLength = res[0][0]['COUNT(*)']
+
+        let pageCount = tbLength%this.postCount === 0 
+            ? tbLength/this.postCount
+            : Math.floor(tbLength/this.postCount) + 1
+
+
+        return pageCount
+    }
 
     // Create ADMIN account
     static createAdmin(userName, passWord, result){
@@ -265,22 +279,6 @@ class mresQuery{
             }
         })
     }
-
-    //Pagination Navigation
-
-    static async getTableLength(tableName){
-        const res = await dbconnect.promise().query('SELECT COUNT(*) FROM '+ tableName)
-
-        const tbLength = res[0][0]['COUNT(*)']
-
-        let pageCount = tbLength%this.postCount === 0 
-            ? tbLength/this.postCount
-            : Math.floor(tbLength/this.postCount) + 1
-
-
-        return pageCount
-    }
-
 }
 
 module.exports = mresQuery
