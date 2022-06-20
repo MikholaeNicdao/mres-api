@@ -4,6 +4,7 @@ let dbconnect = require('../../config/database.config')
 const date = new Date()
 
 class mresQuery{
+    static postCount = 8
 
     //Pagination Navigation
     static async getTableLength(tableName){
