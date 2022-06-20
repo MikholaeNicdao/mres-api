@@ -144,7 +144,7 @@ class mresQuery{
         })
     }
 
-    static schoolActivitiesUpload(coverPhoto, title, description, result){
+    static schoolActivitiesUpload(coverPhoto, title, description, author, result){
         dbconnect.query('INSERT INTO schoolactivities (id, coverPhoto, title, description, author, createdAt) VALUES (?,?,?,?,?,?)', [null, coverPhoto, title, description,author, date], (err,res)=>{
             if(err){
                 result(null, err)
