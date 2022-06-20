@@ -82,7 +82,7 @@ exports.getByPageSA = async (req, res)=>{
         if(err){
             res.status(404).json({success: false, description: data})
         }else{
-            res.status(200).json({success: true, description: data, pageCount})
+            res.status(200).json({success: true, description: data, pageCount: pageCount})
         }
     })
 }
@@ -123,7 +123,7 @@ exports.getByPageAnnouncements = (req,res)=>{
         if(err){
             res.status(404).json({success: false, description: data})
         }else{
-            res.status(200).json({success: true, description: data, pageCount})
+            res.status(200).json({success: true, description: data, pageCount: pageCount})
         }
     })
 }
