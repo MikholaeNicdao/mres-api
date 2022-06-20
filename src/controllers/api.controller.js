@@ -119,7 +119,7 @@ exports.getByIdAnnouncements = (req,res)=>{
 
 exports.getByPageAnnouncements = async (req,res)=>{
     const pageCount = await apiModel.getTableLength('announcements')
-    apiModel.getByPageAnnouncements(req.params.id, (err,data)=>{
+    apiModel.getByPageAnnouncements(req.params.page, (err,data)=>{
         if(err){
             res.status(404).json({success: false, description: data})
         }else{
