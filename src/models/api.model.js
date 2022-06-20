@@ -135,7 +135,7 @@ class mresQuery{
     }
 
     static addFacultyMember(coverPhoto ,TPGL, prefix, firstName, middleInitial, lastName, category, position, result){
-        dbconnect.query('INSERT INTO faculty (id, coverPhoto, teacherPerGradeLevel, prefix, firstName, middleInitial, lastName, category, position) VALUES (?,?,?,?,?,?,?,?,?)', ['', coverPhoto, TPGL, prefix, firstName, middleInitial, lastName, category, position], (err,res)=>{
+        dbconnect.query('INSERT INTO faculty (id, coverPhoto, teacherPerGradeLevel, prefix, firstName, middleInitial, lastName, category, position) VALUES (?,?,?,?,?,?,?,?,?)', [null, coverPhoto, TPGL, prefix, firstName, middleInitial, lastName, category, position], (err,res)=>{
             if(err){
                 result(null, err)
             }else{
@@ -155,7 +155,7 @@ class mresQuery{
     }
 
     static announcementsUpload(coverPhoto, title, description,author, result){
-        dbconnect.query('INSERT INTO announcements (id, coverPhoto, title, description, author, createdAt) VALUES (?,?,?,?,?,?)', ['', coverPhoto, title, description, author, date], (err,res)=>{
+        dbconnect.query('INSERT INTO announcements (id, coverPhoto, title, description, author, createdAt) VALUES (?,?,?,?,?,?)', [null, coverPhoto, title, description, author, date], (err,res)=>{
             if(err){
                 result(null, err)
             }else{
@@ -165,7 +165,7 @@ class mresQuery{
     }
 
     static LCPUpload(coverPhoto, page, result){
-        dbconnect.query('INSERT INTO lcp (id, coverPhoto, page, createdAt) VALUES (?,?,?,?)', ['', coverPhoto, page, date], (err,res)=>{
+        dbconnect.query('INSERT INTO lcp (id, coverPhoto, page, createdAt) VALUES (?,?,?,?)', [null, coverPhoto, page, date], (err,res)=>{
             if(err){
                 result(null, err)
             }else{
