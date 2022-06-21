@@ -43,7 +43,7 @@ class mresQuery{
 
     // Fetching data from database
     static getSchedule(result){
-        dbconnect.query('SELECT * FROM lms', (err,res)=>{
+        dbconnect.query('SELECT * FROM schedules', (err,res)=>{
             if(err){
                 result(null, err)
             }else{
