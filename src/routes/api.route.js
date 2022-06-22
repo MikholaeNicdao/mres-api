@@ -1,6 +1,7 @@
 'use strict'
 
 const express = require('express')
+const jwt = require('jsonwebtoken')
 const res = require('express/lib/response')
 const multer = require('multer')
 const router = express.Router()
@@ -13,7 +14,7 @@ const upload = multer({storage:multer.memoryStorage()})
 router.post('/create/admin/account', apiController.createAdmin)
 router.post('/login/admin', apiController.loginAdmin)
 
-// GET routers for static page 
+// GET routers for static page
 router.get('/Events', apiController.getSchedule)
 router.get('/Faculty', apiController.getAllFaculty)
 router.get('/Schoolactivities', apiController.getAllSchoolActivities)
@@ -43,5 +44,18 @@ router.delete('/Faculty/remove/:id', apiController.removeFacultyById)
 router.delete('/Schoolactivities/remove/:id', apiController.removeSAById)
 router.delete('/Announcements/remove/:id', apiController.removeAnnouncementsById)
 router.delete('/LearningContinuityPlan/remove/:id', apiController.removeLCPById)
+
+function authenticationToken(req, res, next){
+    const authHeader = req.headers['authorization']
+    const token = authHeader && authHeader.split(' ')[1]
+    console.log(authHeader)
+
+    if(token == null) return res.sendStatus(401)
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user)=>{
+        if(err) return res.sendStatus(403)
+        req.user = user
+        next()
+    })
+}
 
 module.exports = router

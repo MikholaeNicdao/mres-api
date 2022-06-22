@@ -20,7 +20,7 @@ class mresQuery{
 
     // Create ADMIN account
     static createAdmin(userName, passWord, result){
-        dbconnect.query('INSERT INTO admin (id, userName,passWord) VALUES (?,?,?)', ['', userName, passWord],(err,res)=>{
+        dbconnect.query('INSERT INTO admin (id, userName,passWord) VALUES (?,?,?)', [null, userName, passWord],(err,res)=>{
             if(err){
                 result(null, err)
             }else{

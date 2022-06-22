@@ -2,7 +2,10 @@
 
 const apiModel = require('../models/api.model')
 const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
+require('dotenv').config()
 const { json } = require('body-parser')
+const { rawListeners } = require('../../config/database.config')
 
 // Create admin account
 exports.createAdmin = async (req,res)=>{
@@ -31,13 +34,15 @@ exports.loginAdmin = (req,res)=>{
             res.status(403).json({success: false})
         }else{
             const dataParse = JSON.parse(JSON.stringify(data).replace('[','').replace(']',''))
+            const user = {name: dataParse.userName}
             const isVerified = comparePassword(passWord,dataParse.passWord)
             function comparePassword(password,hashpassword){
                 return bcrypt.compareSync(password, hashpassword)
             }
 
             if(isVerified){
-                res.status(200).json({success: true, description: data})
+                const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
+                res.json({accessToken: accessToken})
             }else{
                 res.status(403).json({success: false})
             }
