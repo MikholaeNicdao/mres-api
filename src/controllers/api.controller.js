@@ -40,10 +40,9 @@ exports.loginAdmin = (req,res)=>{
             }
 
             if(isVerified){
-                const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
-                res.json({accessToken: accessToken})
+                res.sendStatus(200).json({Login: "Success"})
             }else{
-                res.status(403).json({success: false})
+                res.sendStatus(402).json({Login: "Failed"})
             }
         }
     })
