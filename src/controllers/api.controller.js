@@ -2,7 +2,6 @@
 
 const apiModel = require('../models/api.model')
 const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
 require('dotenv').config()
 const { json } = require('body-parser')
 const { rawListeners } = require('../../config/database.config')
