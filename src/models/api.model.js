@@ -86,7 +86,7 @@ class mresQuery{
 
     static getByIdSA(id,result){
         dbconnect.query('SELECT * FROM schoolactivities WHERE id=?', [id], (err,res)=>{
-            if(err){
+            if(res.length === 0){
                 result(null, err)
             }else{
                 result(null, res)
@@ -106,7 +106,7 @@ class mresQuery{
 
     static getByIdAnnouncements(id, result){
         dbconnect.query('SELECT * FROM announcements WHERE id=?', [id], (err,res)=>{
-            if(err){
+            if(res.length === 0){
                 result(null, err)
             }else{
                 result(null, res)

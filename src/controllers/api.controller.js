@@ -93,7 +93,7 @@ exports.getByPageSA = async (req, res)=>{
 
 exports.getByIdSA = (req,res)=>{
     apiModel.getByIdSA(req.params.id, (err,data)=>{
-        if(err){
+        if(err || data == null){
             res.status(404).json({success: false, description: data})
         }else{
             res.status(200).json({success: true, description: data})
@@ -113,7 +113,7 @@ exports.getAllSchoolAnnouncements = (req,res)=>{
 
 exports.getByIdAnnouncements = (req,res)=>{
     apiModel.getByIdAnnouncements(req.params.id, (err,data)=>{
-        if(err){
+        if(err || data == null){
             res.status(404).json({success: false, description: data})
         }else{
             res.status(200).json({success: true, description: data})
