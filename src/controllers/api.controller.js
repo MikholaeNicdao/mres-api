@@ -35,14 +35,15 @@ exports.loginAdmin = (req,res)=>{
             const dataParse = JSON.parse(JSON.stringify(data).replace('[','').replace(']',''))
             const user = {name: dataParse.userName}
             const isVerified = comparePassword(passWord,dataParse.passWord)
+            
             function comparePassword(password,hashpassword){
                 return bcrypt.compareSync(password, hashpassword)
             }
 
             if(isVerified){
-                res.sendStatus(200).json({Login: "Success"})
+                res.status(200).json({Login: "Success"})
             }else{
-                res.sendStatus(402).json({Login: "Failed"})
+                res.status(402).json({Login: "Failed"})
             }
         }
     })
