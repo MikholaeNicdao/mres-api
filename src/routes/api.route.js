@@ -36,9 +36,10 @@ router.put('/Schoolactivities/update/:id', upload.single('coverPhoto'),apiContro
 router.put('/Announcements/update/:id', upload.single('coverPhoto'),apiController.updateAnnouncements)
 router.put('/LearningContinuityPlan/update/:id', upload.single('coverPhoto'), apiController.updateLCP)
 router.put('/Faculty/update/member/:id', upload.single('coverPhoto'), apiController.updateFaculty)
+router.put('/Schedule/update/:id', apiController.updateSchedule)
 
 // ADMIN DELETE API's
-router.delete('/Schedule/remove', apiController.deleteSchedule)
+router.delete('/Schedule/remove/:id', apiController.deleteSchedule)
 router.delete('/Faculty/remove/:id', apiController.removeFacultyById)
 router.delete('/Schoolactivities/remove/:id', apiController.removeSAById)
 router.delete('/Announcements/remove/:id', apiController.removeAnnouncementsById)

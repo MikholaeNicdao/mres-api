@@ -188,8 +188,8 @@ class mresQuery{
     }
 
     // Deleting DATA's
-    static deleteSchedule(result){
-        dbconnect.query('DELETE FROM schedules WHERE schedulenote != "undefined"', (err,res)=>{
+    static deleteSchedule(id, result){
+        dbconnect.query('DELETE FROM schedules WHERE id=?', [id], (err,res)=>{
             if(err){
                 result(null, err)
             }else{
@@ -251,6 +251,16 @@ class mresQuery{
 
     static updateAnnouncements(image,title,description,id, result){
         dbconnect.query('UPDATE announcements SET coverPhoto=?, title=?, description=?, createdAt=? WHERE id=?', [image,title,description,date,id],(err,res)=>{
+            if(err){
+                result(null, err)
+            }else{
+                result(null, res)
+            }
+        })
+    }
+
+    static updateSchedule(id,title,description, location, result){
+        dbconnect.query('UPDATE schedules SET title=?, description=?, location=?, createAt=? WHERE id=?', [title,description,location,date],(err,res)=>{
             if(err){
                 result(null, err)
             }else{

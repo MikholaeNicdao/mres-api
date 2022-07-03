@@ -224,7 +224,7 @@ exports.LCPUpload = (req,res)=>{
 // Delete Data from database
 
 exports.deleteSchedule = (req,res)=>{
-    apiModel.deleteSchedule((err, result)=>{
+    apiModel.deleteSchedule(req.params.id,(err, result)=>{
         if(err){
             res.status(404).json({success: false, description: result})
         }else{
@@ -295,6 +295,20 @@ exports.updateAnnouncements = (req,res)=>{
     let description = req.body.description
 
     apiModel.updateAnnouncements(image,title,description,req.params.id,(err,result)=>{
+        if(err){
+            res.status(404).json({success: false, description: result})
+        }else{
+            res.status(200).json({success: true, description: result})
+        }
+    })
+}
+
+exports.updateSchedule = (req,res)=>{
+    let title = req.body.title
+    let description = req.body.description
+    let location = req.body.location
+
+    apiModel.updateSchedule(req.params.id,title,description,location,(err,result)=>{
         if(err){
             res.status(404).json({success: false, description: result})
         }else{
