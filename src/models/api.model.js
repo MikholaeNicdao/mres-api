@@ -259,8 +259,8 @@ class mresQuery{
         })
     }
 
-    static updateSchedule(id,title,description, location, result){
-        dbconnect.query('UPDATE schedules SET title=?, description=?, location=?, createAt=? WHERE id=?', [title,description,location,date],(err,res)=>{
+    static updateSchedule(id,title,description, location,date,time, result){
+        dbconnect.query('UPDATE schedules SET title=?, description=?, location=?, date=?, time=? WHERE id=?', [title,description,location,date,time],(err,res)=>{
             if(err){
                 result(null, err)
             }else{

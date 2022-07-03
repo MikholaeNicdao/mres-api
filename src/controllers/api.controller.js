@@ -307,8 +307,10 @@ exports.updateSchedule = (req,res)=>{
     let title = req.body.title
     let description = req.body.description
     let location = req.body.location
+    let date = req.body.date
+    let time = req.body.time
 
-    apiModel.updateSchedule(req.params.id,title,description,location,(err,result)=>{
+    apiModel.updateSchedule(req.params.id,title,description,location,date,time,(err,result)=>{
         if(err){
             res.status(404).json({success: false, description: result})
         }else{
