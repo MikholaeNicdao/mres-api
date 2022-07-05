@@ -269,8 +269,8 @@ class mresQuery{
         })
     }
     
-    static updateLCP(image,id, result){
-        dbconnect.query('UPDATE lcp SET coverPhoto=?, createdAt=? WHERE id=?', [image,date,id],(err,res)=>{
+    static updateLCP(image,page,id,result){
+        dbconnect.query('UPDATE lcp SET coverPhoto=?, page=?, createdAt=? WHERE id=?', [image,page,date,id],(err,res)=>{
             if(err){
                 result(null, err)
             }else{

@@ -321,8 +321,9 @@ exports.updateSchedule = (req,res)=>{
 
 exports.updateLCP = (req,res)=>{
     let image = req.file.buffer.toString('base64')
+    let page = req.body.page
 
-    apiModel.updateAnnouncements(image,req.params.id,(err,result)=>{
+    apiModel.updateAnnouncements(image,page, req.params.id,(err,result)=>{
         if(err){
             res.status(404).json({success: false, description: result})
         }else{
